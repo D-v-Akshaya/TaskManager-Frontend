@@ -1,0 +1,38 @@
+@import 'primeng/resources/themes/saga-blue/theme.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+
+
+:host ::ng-deep .p-menubar {
+	position: fixed;
+    top:0;
+    width:100%;
+	border-style: solid;
+    height: 50px;
+	box-shadow: 0px 4px 6px 0px rgb(90, 89, 89);
+}
+
+
+span{
+    height: 40px;
+    margin-top: 10px;
+    margin: 10px;
+    font-size: large;
+}
+.user{
+    margin-left: auto; 
+}
+.route{
+    width: 90%;
+    align-content: center;
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right:5%;
+}
+img{
+    width:100px;
+    height: 250px;
+}
+.menu-title{
+    color: #023047;
+}

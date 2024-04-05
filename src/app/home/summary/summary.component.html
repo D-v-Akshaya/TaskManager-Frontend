@@ -1,0 +1,28 @@
+<h2 style="text-align: center;">Dashboard</h2>
+<div class="container">
+
+   
+
+
+<div *ngIf="display">
+
+    <div class="summary">
+        <div class="chart">
+            <div class="card flex justify-content-center">
+                <h3>Task Priority</h3>
+                <p-chart type="bar" [data]="bardata" [options]="baroptions"></p-chart>
+            </div>
+        </div>
+        <div class="chart"> 
+            <div class="card flex justify-content-center">
+                <h3>Task status</h3>
+                <p-chart type="pie" [data]="piedata" [options]="piechartOptions"  ></p-chart>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div *ngIf="!display">
+    <h3>Welcome to Task Manager </h3>
+    No registered tasks <br> Kindly Add task.
+</div>

@@ -1,0 +1,126 @@
+<div class="header-buttons">
+  <button pButton type="button" class="add-subtask-button" label="Add Subtask" icon="pi pi-plus-circle" [disabled]="addformDetails.invalid" (click)=" addform()"></button>
+  <button pButton type="button" label="Submit" (click)="onSubmit()" class="submit-button" [disabled]="formDetails.invalid"></button>
+</div>
+<div>
+
+  
+<form [formGroup]="formDetails" >
+  <div class="addcontent">
+  <p-toast></p-toast>
+  <div>
+    <i class='pi pi-arrow-circle-left'  (click)="onCancel()"></i>
+  </div>
+ 
+  <h2>{{title}}</h2>
+    
+      <div class='addtask' [formGroup]="commonform">
+    
+        <div class="section">
+          <div class="p-fluid">
+            <div class="p-field">
+              <label for="name">Name</label>
+              <input id="name" type="text" pInputText formControlName="taskname" />
+              <span class="error_message" *ngIf=" tname && tname.invalid && tname.touched">
+                Please enter the TaskName
+              </span>
+            </div>
+            <div class="p-field">
+              <label for="startDate">Start Date</label>
+              <p-calendar formControlName="startdate" [showIcon]="true" [readonlyInput]="true"  ></p-calendar>
+             
+            </div>
+            <div class="p-field">
+              <label for="status"></label>
+              <p-dropdown id="status" [options]="status" formControlName="status"></p-dropdown>
+            </div><br>
+          </div>
+        </div>
+    
+        <div class="section">
+          <div class="p-fluid">
+            <div class="p-field">
+              <label for="prioption">Priority</label>
+              <p-selectButton [options]="prioritiesOption " formControlName="priorities" [multiple]="false" optionLabel="label"
+                optionValue="value"></p-selectButton>
+              <span class="error_message" *ngIf=" priorities && priorities.invalid && priorities.touched">
+                Please select Priority
+              </span>
+            </div>
+            <div class="p-field">
+              <label for="EndDate">End Date</label>
+              <p-calendar formControlName="enddate" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+              <span class="error_message" *ngIf=" edate && edate.touched && commonform?.hasError('unsequencial')">
+                End date should be after the start date
+              </span><br>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+  
+  <div class="buttom">
+   <span (click)="onReset()" class="resetbutton">Clear form</span>
+  </div>
+</div>
+
+
+
+<!-- form array -->
+  <ng-container  formArrayName="subformDetails">
+<ng-container *ngFor="let formDetails of subformDetails.controls; let i = index">
+  <div class="subtaskContainer" [formGroupName]="i">
+    <div>
+      <i class="pi pi-trash" (click)="deleteSubtask(i,formDetails)" ></i>
+    </div>
+
+  <div class='addtask' >
+    
+    <div class="section">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="name">Name</label>
+          <input id="name" type="text" pInputText formControlName="subtaskname" />
+        
+        </div>
+        <div class="p-field">
+          <label for="startDate">Start Date</label>
+          <p-calendar formControlName="subtaskstartdate" [minDate]="sdate!.value" [maxDate]="edate!.value" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+        </div>
+        <div class="p-field">
+          <label for="status"></label>
+          <p-dropdown id="status" [options]="status" formControlName="subtaskstatus"></p-dropdown>
+        </div><br>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="prioption">Priority</label>
+          <p-selectButton [options]="prioritiesOption " formControlName="subtaskpriorities" [multiple]="false" optionLabel="label"
+            optionValue="value"></p-selectButton>
+          
+        </div>
+        <div class="p-field">
+          <label for="EndDate">End Date</label>
+          <p-calendar formControlName="subtaskenddate" [minDate]="sdate!.value" [maxDate]="edate!.value"[showIcon]="true" [readonlyInput]="true" ></p-calendar>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+  <div class="buttom">
+    <span class="error_message" *ngIf=" formDetails.invalid && formDetails.touched && formDetails.errors">
+      End Date should be after the start date !!!
+    </span>
+  </div>
+</div>
+</ng-container>
+</ng-container>
+</form>
+
+
+</div>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

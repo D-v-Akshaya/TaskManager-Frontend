@@ -1,0 +1,35 @@
+
+<div class="card">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="start">
+        <h2 class="menu-title">Task Manager</h2>
+      </ng-template>
+      <ng-template pTemplate="end">
+        <span class="user">
+          {{ name | titlecase }}
+          <p-avatar icon="pi pi-user" styleClass="mr-2" shape="circle" onclick=""></p-avatar>
+          <i class="pi pi-ellipsis-v" (click)="op.toggle($event)"></i><br />
+        </span>
+        <p-overlayPanel #op>
+          <p-card header="{{name|titlecase}}" [subheader]="email" [style]="{ width: '360px' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="../../assets/profileimg.webp" />
+            </ng-template>
+            <ng-template pTemplate="footer">
+              <p-button  icon='pi pi-fw pi-user-minus' label="SignOut"  (click)="signOut()"></p-button>
+            </ng-template>
+        </p-card>
+          
+        </p-overlayPanel>
+      </ng-template>
+    </p-menubar>
+   
+</div>
+
+
+
+<div class="route">
+
+    <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="registerpg">
+    <h2>SignUp</h2>
+    <p-messages [closable]="false"></p-messages>
+    <form [formGroup]="regform">
+
+        <input type="text" formControlName="uname" #logid placeholder="UserName"><br>
+        <span class=error_message *ngIf=" uname && uname.invalid && uname.touched">
+            Please enter the UserName
+        </span><br>
+        <input type="text" formControlName="email" #logid placeholder="example@gmail.com"><br>
+        <span class=error_message *ngIf="email && email.invalid && email.touched">
+            Please enter valid email
+        </span><br>
+        <input type="password" formControlName="pass" name="pass" #passid placeholder="pass"><br>
+        <span class=error_message *ngIf="pass && pass.invalid && pass.touched">
+            Please enter the PassWord consist of 4 or more letters
+        </span><br>
+        <input type="password" formControlName="conpass" name="pass" #passid placeholder="confirm pass"><br>
+        <span class=error_message *ngIf="conpass  && conpass.touched && regform.hasError('notSame')">
+            The passwords does not match.
+        </span>
+
+        <div>
+            Already have account ?<a href="/">Signin</a><br>
+        </div>
+        <div class="button">
+            <br>
+            <button (click)="onsubmit()" [ngClass]=" {'cancel' :regform.invalid ,'natural':!regform.invalid}"
+                [disabled]="regform.invalid">Submit</button>
+            <button (click)="onclear()" class="clear">Clear</button>
+
+        </div>
+    </form>
+
+</div>

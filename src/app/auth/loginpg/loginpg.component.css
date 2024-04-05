@@ -1,0 +1,51 @@
+
+
+.registerpg{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    background-color: #ffffffda;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    top: 25%;
+}
+
+.cancel{
+color: #fff;
+background-color: rgb(160, 160, 202);
+border-color:rgb(160, 160, 202) ;
+}
+.natural{
+    color: #fff;
+    background-color: blue;
+    border-color:blue;
+    }
+.clear{
+    color: #fff;
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+button{
+  width: 50%;
+  height: 30px;
+  border-radius: 5px;
+}
+form{
+    width: 90%;
+}
+
+
+input {
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+
+}

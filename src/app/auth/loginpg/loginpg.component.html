@@ -1,0 +1,26 @@
+<div class="registerpg">
+    <h2>SignIn</h2>
+    <form [formGroup]="logform">
+        <p-toast></p-toast>
+        <div>
+            <input type="text" formControlName="email" #logid placeholder="example@gmail.com"><br>
+            <span class="error_message" *ngIf="email && email.invalid && email.touched">
+                Please enter valid email
+            </span><br>
+            <input type="password" formControlName="pass" name="pass" #passid placeholder="pass"><br>
+            <span class="error_message" *ngIf="pass && pass.invalid && pass.touched">
+                Please enter the PassWord
+            </span><br>
+            <label *ngIf="iserror" class="error_message" [textContent]="error"></label>
+        </div>
+        <div>
+            Don't have account ?<a href="/auth/signup">Signup</a>
+        </div>
+        <p><button (click)="onSignin()" [ngClass]=" {'cancel' :logform.invalid ,'natural':!logform.invalid}"
+                [disabled]="logform.invalid">Signin</button>
+            <button (click)="onClear()" class="clear">Clear</button>
+
+        </p>
+    </form>
+
+</div>

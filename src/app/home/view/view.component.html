@@ -1,0 +1,68 @@
+<h2 style="text-align: center;"> All Tasks</h2>
+
+
+<div class="view">
+    <p-toast></p-toast>
+    <p-table [value]="tasks" dataKey="tid" [tableStyle]="{ 'min-width': '60rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 5rem"></th>
+                <th >Name</th>
+                <th>Priority</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-task let-expanded="expanded">
+            <tr>
+                <td>
+                    <button type="button" pButton pRipple [pRowToggler]="task" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                </td>
+                <td>{{ task.tname | titlecase }}</td>
+                <td>{{ task.priorities }}</td>
+                <td>{{ task.sdate | date }}</td>
+                <td>{{ task.edate | date }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    <i class="pi pi-pencil" (click)="edittask(task.tid)"></i>
+                    <i class="pi pi-trash" (click)="confirm(task.tid)"></i>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-task>
+            <tr><td></td>
+                <td colspan="6">
+                    
+                        <p-table [value]="task.subTasks" dataKey="subtaskid">
+                            
+                            <ng-template pTemplate="body" let-subtask>
+                                <tr (click)="openSubtask(task.tid,subtask.subtaskid)" >
+                                    <td>{{ subtask.subtaskname }}</td>
+                                    <td>{{ subtask.subtaskpriorities }}</td>
+                                    <td>{{ subtask.subtaskstartdate | date }}</td>
+                                    <td>{{ subtask.subtaskenddate | date }}</td>
+                                    <td>{{ subtask.subtaskstatus }}</td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="6">There are no subtask for this task yet.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+               
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+
+
+
+
+
+
+

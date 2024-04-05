@@ -1,0 +1,16 @@
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* This centers vertically as well */
+}
+
+.page_not_found_img {
+    width: 50%;
+    height: 50%;
+    background-image: url('../../assets/page-not-found.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

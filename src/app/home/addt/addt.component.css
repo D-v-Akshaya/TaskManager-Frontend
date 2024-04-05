@@ -1,0 +1,113 @@
+.addcontent {
+    margin-top: 50px;
+    background-color: aliceblue;
+    box-shadow: 4px 4px 4px 2px rgb(73, 73, 73);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: #023047;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.addtask {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.title {
+    font-size: large;
+    font-weight: bold;
+    color: #1769aa;
+    text-align: center;
+}
+
+.buttom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 12px;
+}
+
+i {
+    margin: 10px;
+}
+
+.section {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin-inline: 10px;
+}
+
+.p-field {
+    margin-top: 20px;
+
+}
+
+.resetbutton {
+    color: blue;
+    float: right;
+    text-align: center;
+}
+
+.pi-arrow-circle-left {
+    font-size: 2rem;
+    color: grey;
+    float: left;
+}
+
+.pi-trash {
+    color: red;
+    font-size: 1rem;
+    float: right;
+
+}
+
+.subtaskContainer {
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: aliceblue;
+    box-shadow: 4px 4px 6px 4px rgb(56, 55, 55);
+
+}
+
+.pi-plus-circle {
+    font-size: 3rem;
+}
+
+.header-buttons {
+    display: flex;
+    right: 5%;
+    margin-top: 5px;
+    z-index: 2;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.add-component {
+    background-color: rgb(228, 233, 238);
+}
+
+
+@media screen and (max-width:700px) {
+    .addtask {
+        flex-direction: column;
+    }
+
+    .section {
+        width: 90%;
+    }
+}
